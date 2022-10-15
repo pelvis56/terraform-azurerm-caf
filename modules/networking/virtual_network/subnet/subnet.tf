@@ -9,7 +9,8 @@ resource "azurecaf_name" "subnet" {
   use_slug      = var.global_settings.use_slug
 }
 
-resource "azurerm_subnet" "subnet" {
+# resource "azurerm_subnet" "subnet" {
+data "azurerm_subnet" "subnet" {
 
   name                                           = azurecaf_name.subnet.result
   resource_group_name                            = var.resource_group_name

@@ -10,7 +10,8 @@ resource "azurecaf_name" "caf_name_vnet" {
   use_slug      = var.global_settings.use_slug
 }
 
-resource "azurerm_virtual_network" "vnet" {
+# resource "azurerm_virtual_network" "vnet" {
+data "azurerm_virtual_network" "vnet" {
   name                = azurecaf_name.caf_name_vnet.result
   location            = var.location
   resource_group_name = var.resource_group_name
